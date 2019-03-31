@@ -12,6 +12,7 @@ var shuffledCards;
 var moves = 0;
 var timer2 = 0;
 var interv;
+var matchy;
 //modal for difficulty selection
 $(document).ready(function () {
     $('#centralModal').modal({
@@ -119,13 +120,18 @@ function open(c) {
         d.removeClass("open flipInY fast");
         console.log(c.attr("class"));
         if (d.attr("class") == c.attr("class")) {
+            matchy = true;
+            console.log(matchy);
             match(c, d);
         } else {
             wrong(c, d);
         }
     }
+    if(!matchy||opened.length==0){
     opened.push(c);
-    c.prop("disabled",true);
+    }else{
+    opened.pop();
+    }
 }
 //if the cards do match, then this method is excuted
 function match(c, d) {
