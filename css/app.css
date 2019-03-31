@@ -102,7 +102,7 @@ h1 {
 }
 @media only screen and (max-width: 768px) {
     .score-panel{
-        width: 357px;
+        width: 360px;
     }
     .score-panel .restart {
         margin-left: 10px;
