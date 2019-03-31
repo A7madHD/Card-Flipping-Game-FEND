@@ -20,7 +20,7 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
-##GameMechanics
+## GameMechanics
 
 First you can start the game with 3 Difficaulties, Easy, Normal and Hard.
 You have 5 minuets to complete the game and find all the cards.
