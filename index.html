@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Matching Game</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="modal fade" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <!-- Change class .modal-sm to change the size of the modal -->
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100" id="myModalLabel">Welcome to the Memory Game!</h4>
+                </div>
+                <div class="modal-body">
+                    Please choose the difficulty
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn" data-dismiss="modal"
+                        onclick="easy()">Easy</button>
+                    <button type="button" class="btn btn-primary btn" data-dismiss="modal"
+                        onclick="normal()">Normal</button>
+                    <button type="button" class="btn btn-danger btn" data-dismiss="modal" onclick="hard()">Hard</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Matching Game</h1>
+        </header>
+
+        <section class="score-panel">
+            <ul class="stars">
+                <li class="card"><i class="fa fa-star"></i></li>
+                <li class="card"><i class="fa fa-star"></i></li>
+                <li class="card"><i class="fa fa-star"></i></li>
+            </ul>
+                <span class="moves">0</span> Moves <span class="Timer">0:00</span> seconds
+            <div class="restart">
+                <button type="button" name="" id="" class="btn btn-primary btn-xs" onclick="restart();"><i
+                        class="fas fa-redo"> Restart </i></button>
+            </div>
+        </section>
+        <ul class="deck">
+        </ul>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
