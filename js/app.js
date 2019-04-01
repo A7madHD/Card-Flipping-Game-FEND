@@ -129,6 +129,7 @@ function open(c) {
     }
     if(!matchy||opened.length==0){
     opened.push(c);
+    c.prop('disabled', true);
     }else{
     opened.pop();
     }
