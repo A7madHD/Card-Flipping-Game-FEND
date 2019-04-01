@@ -118,10 +118,8 @@ function open(c) {
     if (opened.length > 0) {
         var d = opened[0];
         d.removeClass("open flipInY fast");
-        console.log(c.attr("class"));
         if (d.attr("class") == c.attr("class")) {
             matchy = true;
-            console.log(matchy);
             match(c, d);
         } else {
             wrong(c, d);
@@ -142,7 +140,6 @@ function match(c, d) {
     d.prop('disabled', true);
     matched.push(c);
     matched.push(d);
-    console.log(matched.length + " " + shuffledCards.length);
     if (matched.length == shuffledCards.length) {
         finish();
     }
