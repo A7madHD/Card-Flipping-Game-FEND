@@ -181,7 +181,7 @@ function finish() {
     $('#centralModal').each(function (event) {
         var modal = $(this)
         modal.find('.modal-title').text('Congreatulations! You Won!')
-        modal.find('.modal-body').text('You finished the game in ' + moves + ' moves! and ' + timer2 +
+        modal.find('.modal-body').text('You finished the game in ' + moves + ' moves! and with '+ $(".stars").children().children()+ " stars and " + timer2 +
             ' minutes left!. if you want to play again please choose the difficulty');});
     $('#centralModal').modal(Option);
     diff = [];
