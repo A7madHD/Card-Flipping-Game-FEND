@@ -178,10 +178,15 @@ function move() {
 }
 //when the player finishes the game
 function finish() {
+        let stars=[];
+    for(var i = 0; i<$(".stars").children().children().length;i++){
+       stars.push($(".stars").children().children()[i]);
+    }
+    var stringStars = stars[0].outerHTML +stars[1].outerHTML +stars[2].outerHTML;
     $('#centralModal').each(function (event) {
         var modal = $(this)
         modal.find('.modal-title').text('Congreatulations! You Won!')
-        modal.find('.modal-body').text('You finished the game in ' + moves + ' moves! and with '+ $(".stars").children().children()+ " stars and " + timer2 +
+        modal.find('.modal-body').html('You finished the game in ' + moves + ' moves!  with '+stringStars+' Stars and ' + timer2 +
             ' minutes left!. if you want to play again please choose the difficulty');});
     $('#centralModal').modal(Option);
     diff = [];
