@@ -43,11 +43,20 @@ function hard() {
  */
  //start method
 function start() {
+    var allCards=[];
     $(".moves").text(0);
     shuffledCards = shuffle(diff);
     for (var i = 0; i < shuffledCards.length; i++) {
-        $(".deck").append("<li></li>").children().eq(i).addClass("card animated " + shuffledCards[i]);
+        allCards.push($(".deck").append("<li></li>").children().eq(i).addClass("card animated show open flipInY fast " + shuffledCards[i]).prop('disabled',true));
     }
+        setTimeout(function () { for(var i = 0; i < shuffledCards.length; i++){
+        allCards[i].removeClass("show open flipInY fast");
+    } }, 3000);
+    setTimeout(function () { for(var i = 0; i < shuffledCards.length; i++){
+        allCards[i].addClass("flipInY faster");
+    } }, 3010);
+    setTimeout(function () { for(var i = 0; i < shuffledCards.length; i++){
+        allCards[i].removeClass("flipInY faster").prop('disabled',false);}}, 3700);
     var fiveMinutes = 60 * 5, display = $('.Timer');
     clearInterval(interv);
     startTimer(fiveMinutes, display);
@@ -101,6 +110,7 @@ $("ul.deck").on('click', 'li', function (e) {
         opened.pop().prop('disabled',false);
     }
     $(this).removeClass("wobble wrong fast show");
+    $(this).prop('disabled',true);
     show($(this));
     open($(this));
     move();
@@ -118,8 +128,10 @@ function open(c) {
     if (opened.length > 0) {
         var d = opened[0];
         d.removeClass("open flipInY fast");
+        console.log(c.attr("class"));
         if (d.attr("class") == c.attr("class")) {
             matchy = true;
+            console.log(matchy);
             match(c, d);
         } else {
             wrong(c, d);
@@ -127,7 +139,6 @@ function open(c) {
     }
     if(!matchy||opened.length==0){
     opened.push(c);
-    c.prop('disabled', true);
     }else{
     opened.pop();
     }
@@ -140,6 +151,7 @@ function match(c, d) {
     d.prop('disabled', true);
     matched.push(c);
     matched.push(d);
+    console.log(matched.length + " " + shuffledCards.length);
     if (matched.length == shuffledCards.length) {
         finish();
     }
@@ -148,6 +160,7 @@ function match(c, d) {
 function wrong(c, d) {
     c.addClass("wobble wrong fast show");
     d.addClass("wobble wrong fast show");
+    console.log(c);
     setTimeout(function () { natural(c, d) }, 800);
 }
 //returning the cards to their natural state
@@ -178,7 +191,7 @@ function move() {
 }
 //when the player finishes the game
 function finish() {
-        let stars=[];
+    let stars=[];
     for(var i = 0; i<$(".stars").children().children().length;i++){
        stars.push($(".stars").children().children()[i]);
     }
